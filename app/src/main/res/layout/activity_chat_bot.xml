@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background_first"
     tools:context=".ChatBotActivity">
 
     <RelativeLayout
+        android:id="@+id/rl1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/rl3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,66 +36,71 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="288dp"
+        app:layout_constraintBottom_toTopOf="@+id/nestedView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/rl1">
 
         <ImageView
-            android:layout_width="59dp"
-            android:layout_height="61dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/chat" />
 
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="411dp"
-        android:layout_height="257dp"
-        android:layout_marginTop="348dp"
-        android:padding="20dp"
+        android:id="@+id/nestedView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="false"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/rlChat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/rl3">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_chat"/>
+            tools:listitem="@layout/item_chat" />
 
     </androidx.core.widget.NestedScrollView>
 
+
     <RelativeLayout
+        android:id="@+id/rlChat"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="604dp"
-        android:padding="10dp"
+        android:gravity="bottom"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/nestedView">
 
         <EditText
             android:id="@+id/EditChat"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="2dp"
             android:layout_toStartOf="@+id/btSend"
             android:background="@color/transparent"
             android:hint="Enter Message"
             android:inputType="text"
             android:maxLines="6"
+            android:paddingStart="10dp"
             tools:ignore="Autofill" />
 
         <Button
             android:id="@+id/btSend"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:background="@drawable/send_button"
             android:contentDescription="send" />

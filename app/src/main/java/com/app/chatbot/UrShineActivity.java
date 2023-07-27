@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.app.chatbot.Adapter.UrShineAdapter;
-import com.app.chatbot.Model.Messages;
+
 import com.app.chatbot.Model.UserDetails;
-import com.app.chatbot.TempData.MemoryData;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class UrShineActivity extends AppCompatActivity {
 
@@ -48,13 +48,13 @@ public class UrShineActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 urShineAdapter.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String uid = dataSnapshot.getKey();
 
                     if (!uid.equals(FirebaseAuth.getInstance().getUid())) {
                         UserDetails uDetail = dataSnapshot.getValue(UserDetails.class);
-                        list.add(uDetail);
+                            list.add(uDetail);
                     }
                     urShineAdapter.notifyDataSetChanged();
                 }

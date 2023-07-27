@@ -42,7 +42,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ListViewHold
         holder.tvDur.setText(model.getDurasi());
         Glide.with(holder.itemView.getContext())
                 .load(model.getGambar())
-                .apply(new RequestOptions().override(55,55))
+                .apply(new RequestOptions().override(150,150))
                 .into(holder.imgVid);
 
         holder.itemView.setOnClickListener(view -> {

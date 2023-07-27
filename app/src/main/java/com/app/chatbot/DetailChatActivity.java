@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.chatbot.Adapter.ChatDetailAdapter;
@@ -30,25 +32,27 @@ public class DetailChatActivity extends AppCompatActivity {
     String namaDoc;
     EditText chatEditText;
     Button sendBtn;
+    ImageView infoBtn;
     RecyclerView rvChat;
     ChatDetailAdapter detailChatAdapter;
     DatabaseReference referenceSender, referenceReceiver;
-    private String receiverId;
-    private String senderRoom, receiverRoom;
-
+    private String senderRoom, receiverRoom, receiverId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_detail);
 
+        // Get Button id
         sendBtn = findViewById(R.id.btSendDoc);
+        infoBtn = findViewById(R.id.btnInfo);
         chatEditText = findViewById(R.id.EditChatDoc);
 
-        receiverId = getIntent().getStringExtra("uid");
-
+        // Get Room id
         senderRoom = FirebaseAuth.getInstance().getUid() + receiverId;
         receiverRoom = receiverId + FirebaseAuth.getInstance().getUid();
+
+        receiverId = getIntent().getStringExtra("uid");
 
         // Nama Profile
         namaDoc = getIntent().getStringExtra("nama");
@@ -94,5 +98,9 @@ public class DetailChatActivity extends AppCompatActivity {
             referenceReceiver.child(chatId).setValue(chat);
 
         });
+
+        infoBtn.setOnClickListener(view ->
+                startActivity(new Intent(DetailChatActivity.this, ProfileDoctorActivity.class))
+        );
     }
 }

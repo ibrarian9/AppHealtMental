@@ -8,6 +8,7 @@
     tools:context=".VideoMoodActivity">
 
     <TextView
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="112dp"
@@ -23,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="660dp"
         android:layout_marginTop="172dp"
-        android:padding="20dp"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.chatbot.Model.UserDetails;
-import com.app.chatbot.TempData.MemoryData;
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
@@ -99,8 +99,9 @@ public class SignUp extends AppCompatActivity {
                 // Get Uid from Auth Database
                 FirebaseUser fUser = auth.getCurrentUser();
                 String uid = fUser.getUid();
+                String role = "user";
 
-                UserDetails userDetails = new UserDetails(uid, nama, email, password);
+                UserDetails userDetails = new UserDetails(uid, nama, email, password, role);
 
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 

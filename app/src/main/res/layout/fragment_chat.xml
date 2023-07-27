@@ -60,7 +60,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="368dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="409dp"
         android:padding="20dp">
 
@@ -73,10 +73,10 @@
     </androidx.core.widget.NestedScrollView>
 
     <RelativeLayout
+        android:padding="10dp"
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:padding="10dp"
         android:layout_gravity="bottom"
         android:layout_marginBottom="30dp">
 

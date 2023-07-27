@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.app.chatbot.AlarmActivity;
 import com.app.chatbot.ChatBotActivity;
 import com.app.chatbot.DiaryActivity;
 import com.app.chatbot.R;
@@ -23,8 +24,8 @@ import com.app.chatbot.VideoMoodActivity;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
-    Intent intent1, intent2, intent3, intent4, intent5;
-    Button btn1, btn2, btn3, btn4, btn5;
+    Intent intent1, intent2, intent3, intent4, intent5, intent6;
+    Button btn1, btn2, btn3, btn4, btn5, btn6;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -92,6 +93,10 @@ public class HomeFragment extends Fragment {
         intent5 = new Intent(getActivity(), UrApotekActivity.class);
         btn5 = rootView.findViewById(R.id.btnApotek);
         btn5.setOnClickListener(view -> startActivity(intent5));
+        // Ur Reminder
+        intent6 = new Intent(getActivity(), AlarmActivity.class);
+        btn6 = rootView.findViewById(R.id.btnUrReminder);
+        btn6.setOnClickListener(view -> startActivity(intent6));
 
         return rootView;
     }

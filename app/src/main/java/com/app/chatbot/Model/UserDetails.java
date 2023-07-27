@@ -2,17 +2,18 @@ package com.app.chatbot.Model;
 
 public class UserDetails {
 
-    private String userId, userName, userEmail, userPassword;
+    private String userId, userName, userEmail, userPassword, role;
 
     public UserDetails(){
 
     }
 
-    public UserDetails(String userId, String userName, String userEmail, String userPassword){
+    public UserDetails(String userId, String userName, String userEmail, String userPassword, String role){
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
+        this.role = role;
     }
 
     public String getUserId() {
@@ -45,5 +46,13 @@ public class UserDetails {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
